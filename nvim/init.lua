@@ -1,6 +1,6 @@
 --- default settings ---
-local settings = require "settings"
-local keymappings = require "general.keymappings"
+local globals = require "config.globals"
+local keymappings = require "config.keymappings"
 
 --- lazy vim setup ---
 local lazy_bootstrap = require "lazyv.bootstrap"

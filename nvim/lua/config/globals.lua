@@ -10,3 +10,9 @@ vim.o.expandtab = true
 --- defaults ---
 vim.cmd("highlight clear", silent)
 vim.cmd(vim.g.syntax_on and 'syntax reset' or '')
+
+--- theme ---
+vim.o.background = "dark"
+
+--- keymappings ---
+vim.g.mapleader = " "
