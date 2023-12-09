@@ -1,10 +1,10 @@
 local env = require "env"
 
 --- theme ---
-local nightfox = require "plugins.theme.nightfox"
+local nightfox = require "plugins.themes.nightfox"
 
 --- popups ---
-local whichkey = require "plugins.popup.which-key"
+local whichkey = require "plugins.popups.which-key"
 
 --- settings ---
 local neoconf = require "plugins.settings.neoconf"
