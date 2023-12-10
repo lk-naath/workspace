@@ -1,19 +1,23 @@
 local env = require "env"
 
---- theme
-local nightfox = require "plugins.themes.nightfox"
+--- colorscheme
+local nightfox = require "plugins.colorscheme.nightfox"
 
---- popups
-local whichkey = require "plugins.popups.which-key"
+--- keybinding
+local whichkey = require "plugins.keybinding.which-key"
 
 --- settings
 local neoconf = require "plugins.settings.neoconf"
 local neodev = require "plugins.settings.neodev"
 
---- files
-local nvimtree = require "plugins.files.nvim-tree"
+--- explorer
+local nvimtree = require "plugins.explorer.nvim-tree"
+
+--- LSP
+local lspconfig = require "plugins.LSP.lspconfig"
 
 require("lazy").setup({
+  lspconfig,
   nvimtree,
   nightfox,
   whichkey,
