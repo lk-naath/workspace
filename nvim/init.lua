@@ -1,5 +1,6 @@
 --- default settings ---
 local globals = require "config.globals"
+local options = require "config.options"
 local keymappings = require "config.keymappings"
 
 --- lazy vim setup ---
