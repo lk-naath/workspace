@@ -10,7 +10,11 @@ local whichkey = require "plugins.popups.which-key"
 local neoconf = require "plugins.settings.neoconf"
 local neodev = require "plugins.settings.neodev"
 
+--- files
+local nvimtree = require "plugins.files.nvim-tree"
+
 require("lazy").setup({
+  nvimtree,
   nightfox,
   whichkey,
   neoconf,
