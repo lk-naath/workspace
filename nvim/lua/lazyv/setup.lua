@@ -16,11 +16,15 @@ local nvimtree = require "plugins.explorer.nvim-tree"
 --- LSP
 local lspconfig = require "plugins.LSP.lspconfig"
 
+--- Completion
+local nvimcmp = require "plugins.completion.nvim-cmp"
+
 require("lazy").setup({
   lspconfig,
   nvimtree,
   nightfox,
   whichkey,
+  nvimcmp,
   neoconf,
   neodev,
   --- build = {},
