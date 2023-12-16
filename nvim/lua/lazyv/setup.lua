@@ -19,8 +19,12 @@ local lspconfig = require "plugins.LSP.lspconfig"
 --- Completion
 local nvimcmp = require "plugins.completion.nvim-cmp"
 
+--- Fuzzy Finder
+local telescope = require "plugins.fuzzyfind.telescope"
+
 require("lazy").setup({
   lspconfig,
+  telescope,
   nvimtree,
   nightfox,
   whichkey,
