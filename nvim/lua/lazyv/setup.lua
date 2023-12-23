@@ -14,7 +14,9 @@ local neodev = require "plugins.settings.neodev"
 local nvimtree = require "plugins.explorer.nvim-tree"
 
 --- LSP
+local mason = require "plugins.LSP.mason"
 local lspconfig = require "plugins.LSP.lspconfig"
+local masonlspconfig = require "plugins.LSP.masonlspconfig"
 
 --- Completion
 local nvimcmp = require "plugins.completion.nvim-cmp"
@@ -23,6 +25,7 @@ local nvimcmp = require "plugins.completion.nvim-cmp"
 local telescope = require "plugins.fuzzyfind.telescope"
 
 require("lazy").setup({
+  masonlspconfig,
   lspconfig,
   telescope,
   nvimtree,
@@ -31,6 +34,7 @@ require("lazy").setup({
   nvimcmp,
   neoconf,
   neodev,
+  mason,
   --- build = {},
   --- checker = {},
   --- concurrency = {},
