@@ -8,3 +8,4 @@ return {
     lspconfig.lua_ls.setup({})
   end,
 }
+
