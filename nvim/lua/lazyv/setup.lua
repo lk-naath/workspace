@@ -24,10 +24,15 @@ local nvimcmp = require "plugins.completion.nvim-cmp"
 --- Fuzzy Finder
 local telescope = require "plugins.fuzzyfind.telescope"
 
+--- Git
+local gitsigns = require "plugins.Git.gitsigns"
+
+
 require("lazy").setup({
   masonlspconfig,
   lspconfig,
   telescope,
+  gitsigns,
   nvimtree,
   nightfox,
   whichkey,
