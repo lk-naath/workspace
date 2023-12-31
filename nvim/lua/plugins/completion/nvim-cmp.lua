@@ -13,6 +13,11 @@ return {
   config=function()
     local cmp = require "cmp"
 
+    local keymappings = {
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<C-Space>'] = cmp.mapping.complete()
+    }
+
     local generalSources = {
       { name = "nvim_lsp" },
       { name = "luasnip" },
@@ -41,9 +46,13 @@ return {
       })
     }
 
-    cmp.setup({sources = cmp.config.sources(generalSources)})
     cmp.setup.cmdline('/', searchSources)
     cmp.setup.cmdline(':', pathSources)
+    cmp.setup({
+      sources = cmp.config.sources(generalSources),
+      mapping = cmp.mapping.preset.insert(keymappings)
+    })
+
   end
 }
 
