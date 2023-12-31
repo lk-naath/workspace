@@ -1,6 +1,5 @@
 return {
-  "williamboman/mason.nvim",
-  lazy=false,
-  config={}
+	"williamboman/mason.nvim",
+	lazy = false,
+	config = {},
 }
-

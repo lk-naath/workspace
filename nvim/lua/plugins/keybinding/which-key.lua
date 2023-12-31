@@ -1,10 +1,8 @@
 return {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  config = function()
-    require("which-key").setup({
-      triggers = "auto",
-    })
-  end,
-  opts = {}
+	"folke/which-key.nvim",
+	event = "VeryLazy",
+	config = function()
+		local wk = require("which-key")
+	end,
+	opts = {},
 }

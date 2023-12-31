@@ -1,60 +1,58 @@
-local env = require "env"
+local env = require("env")
 
 --- colorscheme
-local nightfox = require "plugins.colorscheme.nightfox"
+local nightfox = require("plugins.colorscheme.nightfox")
 
 --- keybinding
-local whichkey = require "plugins.keybinding.which-key"
+local whichkey = require("plugins.keybinding.which-key")
 
 --- settings
-local neoconf = require "plugins.settings.neoconf"
-local neodev = require "plugins.settings.neodev"
+local neoconf = require("plugins.settings.neoconf")
+local neodev = require("plugins.settings.neodev")
 
 --- explorer
-local nvimtree = require "plugins.explorer.nvim-tree"
+local nvimtree = require("plugins.explorer.nvim-tree")
 
 --- LSP
-local mason = require "plugins.LSP.mason"
-local lspconfig = require "plugins.LSP.lspconfig"
-local masonlspconfig = require "plugins.LSP.masonlspconfig"
+local mason = require("plugins.LSP.mason")
+local lspconfig = require("plugins.LSP.lspconfig")
+local masonlspconfig = require("plugins.LSP.masonlspconfig")
 
 --- Completion
-local nvimcmp = require "plugins.completion.nvim-cmp"
+local nvimcmp = require("plugins.completion.nvim-cmp")
 
 --- Fuzzy Finder
-local telescope = require "plugins.fuzzyfind.telescope"
+local telescope = require("plugins.fuzzyfind.telescope")
 
 --- Git
-local gitsigns = require "plugins.Git.gitsigns"
-
+local gitsigns = require("plugins.Git.gitsigns")
 
 require("lazy").setup({
-  masonlspconfig,
-  lspconfig,
-  telescope,
-  gitsigns,
-  nvimtree,
-  nightfox,
-  whichkey,
-  nvimcmp,
-  neoconf,
-  neodev,
-  mason,
-  --- build = {},
-  --- checker = {},
-  --- concurrency = {},
-  --- defaults = {},
-  --- dev = {},
-  --- diff = {},
-  --- git = {},
-  --- install = {},
-  --- lockfile = {},
-  --- performance = {},
-  --- profiling = {},
-  --- readme = {},
-  --- root = env.lazypath,
-  --- spec = {},
-  --- state = env.statepath,
-  --- ui = {},
+	masonlspconfig,
+	lspconfig,
+	telescope,
+	gitsigns,
+	nvimtree,
+	nightfox,
+	whichkey,
+	nvimcmp,
+	neoconf,
+	neodev,
+	mason,
+	--- build = {},
+	--- checker = {},
+	--- concurrency = {},
+	--- defaults = {},
+	--- dev = {},
+	--- diff = {},
+	--- git = {},
+	--- install = {},
+	--- lockfile = {},
+	--- performance = {},
+	--- profiling = {},
+	--- readme = {},
+	--- root = env.lazypath,
+	--- spec = {},
+	--- state = env.statepath,
+	--- ui = {},
 })
-

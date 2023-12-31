@@ -24,7 +24,6 @@ opt.cmdheight = 1
 opt.scrolloff = 10
 opt.completeopt = "menuone,noinsert,noselect"
 
-
 -- which key
 vim.o.timeout = true
 vim.o.timeoutlen = 500
