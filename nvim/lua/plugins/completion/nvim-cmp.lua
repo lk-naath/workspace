@@ -1,28 +1,3 @@
-local function expandLuaSnip(args)
-	require("luasnip").lsp_expand(args.body)
-end
-
-local function pathAutoCompSetup(cmp)
-	local pathSources = { { name = "path" } }
-	local cmdSources = {
-		{ name = "cmdline" },
-		{ option = { ignore_cmds = { "Man", "!" } } },
-	}
-
-	return {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = cmp.config.sources(pathSources, cmdSources),
-	}
-end
-
-local function localSearchAutoCompSetup(cmp)
-	local sourceBuffer = { { name = "buffer" } }
-	return {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = cmp.config.sources(sourceBuffer),
-	}
-end
-
 return {
 	"hrsh7th/nvim-cmp",
 	event = { "InsertEnter" },
@@ -37,19 +12,14 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
+    local cmpconf = require("config.Completion.nvim-cmp")
 
-		local generalSources = {
-			{ name = "nvim_lsp" },
-			{ name = "luasnip" },
-			{ name = "buffer" },
-			{ name = "path" },
-		}
-
-		cmp.setup.cmdline("/", localSearchAutoCompSetup(cmp))
-		cmp.setup.cmdline(":", pathAutoCompSetup(cmp))
+		cmp.setup.cmdline("/", cmpconf.localSearchAutoCompSetup(cmp))
+		cmp.setup.cmdline(":", cmpconf.pathAutoCompSetup(cmp))
 		cmp.setup({
-			snippet = { expand = expandLuaSnip },
-			sources = cmp.config.sources(generalSources),
+			snippet = { expand = cmpconf.expandLuaSnip },
+			sources = cmp.config.sources(cmpconf.autoCompSources(cmp)),
 		})
 	end,
 }
+
