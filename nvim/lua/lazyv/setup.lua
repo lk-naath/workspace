@@ -28,7 +28,7 @@ local telescope = require("plugins.fuzzyfind.telescope")
 local gitsigns = require("plugins.Git.gitsigns")
 
 --- Status Line
-local lualine = require("plugins.StatusLine.lualine")
+local lualine = require("plugins.Statusline.lualine")
 
 require("lazy").setup({
 	masonlspconfig,
