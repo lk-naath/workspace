@@ -1,6 +1,5 @@
 local module = {}
 
-
 function module.setup()
 	require("mason-lspconfig").setup({
 		ensure_installed = {
@@ -8,6 +7,5 @@ function module.setup()
 		},
 	})
 end
-
 
 return module

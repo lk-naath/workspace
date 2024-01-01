@@ -4,7 +4,6 @@ function module.expandLuaSnip(args)
 	require("luasnip").lsp_expand(args.body)
 end
 
-
 function module.pathAutoCompSetup(cmp)
 	local pathSources = { { name = "path" } }
 	local cmdSources = {
@@ -18,7 +17,6 @@ function module.pathAutoCompSetup(cmp)
 	}
 end
 
-
 function module.localSearchAutoCompSetup(cmp)
 	local sourceBuffer = { { name = "buffer" } }
 	return {
@@ -27,14 +25,13 @@ function module.localSearchAutoCompSetup(cmp)
 	}
 end
 
-
 function module.autoCompSources(cmp)
-  return {
-			{ name = "nvim_lsp" },
-			{ name = "luasnip" },
-			{ name = "buffer" },
-			{ name = "path" },
-		}
+	return {
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "path" },
+	}
 end
 
 return module

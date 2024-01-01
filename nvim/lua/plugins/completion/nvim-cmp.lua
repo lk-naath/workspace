@@ -12,7 +12,7 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
-    local cmpconf = require("config.Completion.nvim-cmp")
+		local cmpconf = require("config.Completion.nvim-cmp")
 
 		cmp.setup.cmdline("/", cmpconf.localSearchAutoCompSetup(cmp))
 		cmp.setup.cmdline(":", cmpconf.pathAutoCompSetup(cmp))
@@ -22,4 +22,3 @@ return {
 		})
 	end,
 }
-
