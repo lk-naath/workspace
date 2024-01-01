@@ -1,14 +1,8 @@
-local env = require("env")
-
 --- colorscheme
 local nightfox = require("plugins.colorscheme.nightfox")
 
 --- keybinding
 local whichkey = require("plugins.keybinding.which-key")
-
---- settings
-local neoconf = require("plugins.settings.neoconf")
-local neodev = require("plugins.settings.neodev")
 
 --- explorer
 local nvimtree = require("plugins.explorer.nvim-tree")
@@ -28,7 +22,7 @@ local telescope = require("plugins.fuzzyfind.telescope")
 local gitsigns = require("plugins.Git.gitsigns")
 
 --- Status Line
-local lualine = require("plugins.Statusline.lualine")
+local lualine = require("plugins.statusline.lualine")
 
 require("lazy").setup({
 	masonlspconfig,
@@ -39,8 +33,6 @@ require("lazy").setup({
 	nightfox,
 	whichkey,
 	nvimcmp,
-	neoconf,
-	neodev,
 	mason,
 	lualine,
 	--- build = {},

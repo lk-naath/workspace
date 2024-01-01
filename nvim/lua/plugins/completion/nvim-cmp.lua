@@ -12,13 +12,14 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
-		local cmpconf = require("config.Completion.nvim-cmp")
+		local cmpconf = require("config.completion.nvim-cmp")
 
-		cmp.setup.cmdline("/", cmpconf.localSearchAutoCompSetup(cmp))
-		cmp.setup.cmdline(":", cmpconf.pathAutoCompSetup(cmp))
+		cmp.setup.cmdline("/", cmpconf.local_search_auto_comp_setup(cmp))
+		cmp.setup.cmdline(":", cmpconf.path_auto_comp_setup(cmp))
 		cmp.setup({
-			snippet = { expand = cmpconf.expandLuaSnip },
-			sources = cmp.config.sources(cmpconf.autoCompSources(cmp)),
+			snippet = { expand = cmpconf.expand_lua_snip},
+			sources = cmp.config.sources(cmpconf.auto_comp_sources(cmp)),
 		})
 	end,
 }
+
