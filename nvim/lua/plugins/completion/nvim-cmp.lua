@@ -17,9 +17,8 @@ return {
 		cmp.setup.cmdline("/", cmpconf.local_search_auto_comp_setup(cmp))
 		cmp.setup.cmdline(":", cmpconf.path_auto_comp_setup(cmp))
 		cmp.setup({
-			snippet = { expand = cmpconf.expand_lua_snip},
+			snippet = { expand = cmpconf.expand_lua_snip },
 			sources = cmp.config.sources(cmpconf.auto_comp_sources(cmp)),
 		})
 	end,
 }
-

@@ -5,4 +5,4 @@ require("lazyv.setup")
 --- default settings ---
 require("config.globals")
 require("config.options")
-require("config.keymappings")
+require("config.keymappings").setup.global()
