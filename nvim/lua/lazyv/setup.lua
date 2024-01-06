@@ -24,6 +24,9 @@ local gitsigns = require("plugins.Git.gitsigns")
 --- Status Line
 local lualine = require("plugins.statusline.lualine")
 
+--- formatters
+local neoformat = require("plugins.formatter.neoformat")
+
 require("lazy").setup({
 	masonlspconfig,
 	lspconfig,
@@ -35,6 +38,7 @@ require("lazy").setup({
 	nvimcmp,
 	mason,
 	lualine,
+  neoformat
 	--- build = {},
 	--- checker = {},
 	--- concurrency = {},

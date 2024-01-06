@@ -1,17 +1,16 @@
-setup = {}
+-- module tables
+local setup = {}
 
-function setup.global()
-	local map = vim.api.nvim_set_keymap
-	local silent = { silent = true, noremap = true }
+-- mappers
+local keymap = vim.keymap.set
 
-	map("n", "<Space>", "<Nop>", silent)
-end
+function setup.telescope()
+  local builtin = require("telescope.builtin")
 
-function setup.telescope(telescope)
-	vim.keymap.set("n", "<leader>ff", telescope.builtin.find_files, {})
-	vim.keymap.set("n", "<leader>fg", telescope.builtin.live_grep, {})
-	vim.keymap.set("n", "<leader>fb", telescope.builtin.buffers, {})
-	vim.keymap.set("n", "<leader>fh", telescope.builtin.help_tags, {})
+  keymap("n", "<leader>ff", builtin.find_files, {})
+	keymap("n", "<leader>fg", builtin.live_grep, {})
+	keymap("n", "<leader>fb", builtin.buffers, {})
+	keymap("n", "<leader>fh", builtin.help_tags, {})
 end
 
 return {
