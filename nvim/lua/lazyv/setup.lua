@@ -1,5 +1,6 @@
 --- colorscheme
 local nightfox = require("plugins.colorscheme.nightfox")
+local catppuccin = require("plugins.colorscheme.catppuccin")
 
 --- keybinding
 local whichkey = require("plugins.keybinding.which-key")
@@ -27,7 +28,7 @@ require("lazy").setup({
 	telescope,
 	gitsigns,
 	nvimtree,
-	nightfox,
+  catppuccin,
 	whichkey,
 	lualine,
   neoformat
