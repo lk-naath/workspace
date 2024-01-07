@@ -25,13 +25,4 @@ function module.local_search_auto_comp_setup(cmp)
 	}
 end
 
-function module.auto_comp_sources(cmp)
-	return {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-		{ name = "buffer" },
-		{ name = "path" },
-	}
-end
-
 return module

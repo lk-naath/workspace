@@ -9,11 +9,6 @@ local nvimtree = require("plugins.explorer.nvim-tree")
 
 --- LSP
 local mason = require("plugins.LSP.mason")
-local lspconfig = require("plugins.LSP.lspconfig")
-local masonlspconfig = require("plugins.LSP.masonlspconfig")
-
---- Completion
-local nvimcmp = require("plugins.completion.nvim-cmp")
 
 --- Fuzzy Finder
 local telescope = require("plugins.fuzzyfind.telescope")
@@ -28,15 +23,12 @@ local lualine = require("plugins.statusline.lualine")
 local neoformat = require("plugins.formatter.neoformat")
 
 require("lazy").setup({
-	masonlspconfig,
-	lspconfig,
+	mason,
 	telescope,
 	gitsigns,
 	nvimtree,
 	nightfox,
 	whichkey,
-	nvimcmp,
-	mason,
 	lualine,
   neoformat
 	--- build = {},
