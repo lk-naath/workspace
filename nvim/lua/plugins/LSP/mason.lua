@@ -42,5 +42,8 @@ return {
 		{ "hrsh7th/cmp-path", event = { "InsertEnter" } },
 		{ "hrsh7th/nvim-cmp", event = { "InsertEnter" } },
 		{ "L3MON4D3/LuaSnip", event = { "InsertEnter" } },
+		{ "mfussenegger/nvim-dap", event = { "InsertEnter" } },
+		{ "rcarriga/nvim-dap-ui", event = { "InsertEnter" } },
+		{ "jose-elias-alvarez/null-ls.nvim", event = { "InsertEnter" } },
   }
 }
