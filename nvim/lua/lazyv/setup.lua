@@ -1,5 +1,6 @@
 --- colorscheme
 local nightfox = require("plugins.colorscheme.nightfox")
+local rosepine = require("plugins.colorscheme.rosepine")
 local catppuccin = require("plugins.colorscheme.catppuccin")
 
 --- keybinding
