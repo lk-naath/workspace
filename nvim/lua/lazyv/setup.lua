@@ -23,30 +23,26 @@ local lualine = require("plugins.statusline.lualine")
 
 --- formatters
 local neoformat = require("plugins.formatter.neoformat")
+local treesitter = require("plugins.syntax.treesitter")
 
-require("lazy").setup({
+local plugins = {
 	mason,
 	telescope,
 	gitsigns,
 	nvimtree,
-  catppuccin,
+	treesitter,
+	catppuccin,
 	whichkey,
 	lualine,
-  neoformat
-	--- build = {},
-	--- checker = {},
-	--- concurrency = {},
-	--- defaults = {},
-	--- dev = {},
-	--- diff = {},
-	--- git = {},
-	--- install = {},
-	--- lockfile = {},
-	--- performance = {},
-	--- profiling = {},
-	--- readme = {},
-	--- root = env.lazypath,
-	--- spec = {},
-	--- state = env.statepath,
-	--- ui = {},
-})
+	neoformat,
+}
+
+if vim.g.vscode then
+	plugins = {
+		telescope,
+		whichkey,
+		catppuccin,
+	}
+end
+
+require("lazy").setup(plugins)
