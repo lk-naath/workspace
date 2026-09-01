@@ -12,8 +12,10 @@ return {
 		local cmp = require("cmp")
 		local utils_cmp = require("plugins.LSP.utils_cmp")
 
-		cmp.setup.cmdline("/", utils_cmp.local_search_auto_comp_setup(cmp))
-		cmp.setup.cmdline(":", utils_cmp.path_auto_comp_setup(cmp))
+		if not vim.g.vscode then
+			cmp.setup.cmdline("/", utils_cmp.local_search_auto_comp_setup(cmp))
+			cmp.setup.cmdline(":", utils_cmp.path_auto_comp_setup(cmp))
+		end
 
 		cmp.setup({
 			snippet = {

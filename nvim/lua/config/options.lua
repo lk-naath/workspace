@@ -14,6 +14,13 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
 
+if vim.g.vscode then
+	-- VSCode Neovim can sometimes make the incremental search highlight too subtle.
+	-- Re-apply the search options and make the active match visually obvious.
+	vim.api.nvim_set_hl(0, "IncSearch", { bold = true, reverse = true })
+	vim.api.nvim_set_hl(0, "CurSearch", { bold = true, reverse = true })
+end
+
 -- Appearance
 opt.number = true
 opt.relativenumber = true
