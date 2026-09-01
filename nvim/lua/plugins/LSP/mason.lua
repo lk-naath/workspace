@@ -2,16 +2,13 @@ return {
     "williamboman/mason.nvim",
 
     config = function()
-        local cmp = require("cmp")
-        local utils_cmp = require("plugins.LSP.utils_cmp")
-
         require("mason").setup()
 
         require("mason-lspconfig").setup({
-        ensure_installed = {
-            "lua_ls",
-            "pylsp",
-        },
+            ensure_installed = {
+                "lua_ls",
+                "pylsp",
+            },
         })
 
         -- LSP (Neovim 0.11+)
@@ -20,33 +17,11 @@ return {
 
         vim.lsp.config("pylsp", {})
         vim.lsp.enable("pylsp")
-
-        -- auto completion
-        cmp.setup.cmdline("/", utils_cmp.local_search_auto_comp_setup(cmp))
-        cmp.setup.cmdline(":", utils_cmp.path_auto_comp_setup(cmp))
-
-        cmp.setup({
-        snippet = {
-            expand = utils_cmp.expand_lua_snip,
-        },
-        sources = cmp.config.sources({
-            { name = "nvim_lsp" },
-            { name = "luasnip" },
-            { name = "buffer" },
-            { name = "path" },
-        }),
-        })
     end,
 
     dependencies = {
         { "neovim/nvim-lspconfig" },
         { "williamboman/mason-lspconfig.nvim" },
-        { "hrsh7th/cmp-cmdline", event = "CmdLineEnter" },
-        { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
-        { "hrsh7th/cmp-buffer", event = "InsertEnter" },
-        { "hrsh7th/cmp-path", event = "InsertEnter" },
-        { "hrsh7th/nvim-cmp", event = "InsertEnter" },
-        { "L3MON4D3/LuaSnip", event = "InsertEnter" },
         { "mfussenegger/nvim-dap", event = "InsertEnter" },
         { "rcarriga/nvim-dap-ui", event = "InsertEnter" },
         { "nvimtools/none-ls.nvim", event = "InsertEnter" },

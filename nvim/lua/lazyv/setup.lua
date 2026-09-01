@@ -1,6 +1,4 @@
 --- colorscheme
-local nightfox = require("plugins.colorscheme.nightfox")
-local rosepine = require("plugins.colorscheme.rosepine")
 local catppuccin = require("plugins.colorscheme.catppuccin")
 
 --- keybinding
@@ -11,6 +9,7 @@ local nvimtree = require("plugins.explorer.nvim-tree")
 
 --- LSP
 local mason = require("plugins.LSP.mason")
+local cmp = require("plugins.LSP.cmp")
 
 --- Fuzzy Finder
 local telescope = require("plugins.fuzzyfind.telescope")
@@ -27,6 +26,7 @@ local treesitter = require("plugins.syntax.treesitter")
 
 local plugins = {
 	mason,
+	cmp,
 	telescope,
 	gitsigns,
 	nvimtree,
