@@ -1,5 +1,5 @@
---- colorscheme
-local catppuccin = require("plugins.colorscheme.catppuccin")
+--- Colorscheme
+local colorscheme = require("plugins.colorscheme")
 
 --- keybinding
 local whichkey = require("plugins.keybinding.which-key")
@@ -31,7 +31,7 @@ local plugins = {
 	gitsigns,
 	nvimtree,
 	treesitter,
-	catppuccin,
+	colorscheme,
 	whichkey,
 	lualine,
 	neoformat,
@@ -41,7 +41,7 @@ if vim.g.vscode then
 	plugins = {
 		telescope,
 		whichkey,
-		catppuccin,
+		colorscheme,
 	}
 end
 

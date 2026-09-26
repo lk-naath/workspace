@@ -1,12 +1,14 @@
 local opt = vim.opt
+local config = require("config")
+local layout = config.theme.layout
 
 -- Tab / Indentation
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.softtabstop = 2
-opt.expandtab = true
-opt.smartindent = true
-opt.wrap = false
+opt.tabstop = layout.indent.tabstop
+opt.shiftwidth = layout.indent.shiftwidth
+opt.softtabstop = layout.indent.softtabstop
+opt.expandtab = layout.indent.expandtab
+opt.smartindent = layout.indent.smartindent
+opt.wrap = layout.wrap
 
 -- Search
 opt.incsearch = true
@@ -22,17 +24,17 @@ if vim.g.vscode then
 end
 
 -- Appearance
-opt.number = true
-opt.relativenumber = true
+opt.number = layout.line_numbers
+opt.relativenumber = layout.relative_line_numbers
 opt.termguicolors = true
-opt.colorcolumn = "100"
-opt.signcolumn = "yes"
-opt.cmdheight = 1
-opt.scrolloff = 10
+opt.colorcolumn = tostring(layout.color_column)
+opt.signcolumn = layout.sign_column
+opt.cmdheight = layout.cmdheight
+opt.scrolloff = layout.scrolloff
 opt.completeopt = "menuone,noinsert,noselect"
 
 -- Status Line
-opt.laststatus = 3
+opt.laststatus = layout.laststatus
 
 -- WhichKey
 vim.o.timeout = true

@@ -1,0 +1,34 @@
+## Shared theme settings used by Neovim and other applications.
+[theme]
+scheme = "catppuccin"
+style = "mocha"
+background = "dark"
+
+[theme.color]
+base = "#1e1e2e"
+mantle = "#181825"
+surface = "#313244"
+text = "#cdd6f4"
+subtext = "#a6adc8"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+mauve = "#cba6f7"
+
+[theme.layout]
+line_numbers = true
+relative_line_numbers = true
+wrap = false
+sign_column = "yes"
+color_column = 100
+scrolloff = 10
+cmdheight = 1
+laststatus = 3
+
+[theme.layout.indent]
+tabstop = 2
+shiftwidth = 2
+softtabstop = 2
+expandtab = true
+smartindent = true
