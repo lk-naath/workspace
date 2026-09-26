@@ -1,20 +1,20 @@
 ## Shared theme settings used by Neovim and other applications.
 [theme]
-scheme = "catppuccin"
-style = "mocha"
+scheme = "nightfox"
+style = "nightfox"
 background = "dark"
 
 [theme.color]
-base = "#1e1e2e"
-mantle = "#181825"
-surface = "#313244"
-text = "#cdd6f4"
-subtext = "#a6adc8"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-mauve = "#cba6f7"
+base = "#151a1d"
+mantle = "#101416"
+surface = "#1d2528"
+text = "#c8d2cc"
+subtext = "#899b92"
+red = "#bd7474"
+green = "#78977a"
+yellow = "#b9a477"
+blue = "#7295a3"
+mauve = "#9d8eaa"
 
 [theme.layout]
 line_numbers = true
