@@ -20,8 +20,6 @@ local gitsigns = require("plugins.Git.gitsigns")
 --- Status Line
 local lualine = require("plugins.statusline.lualine")
 
---- formatters
-local neoformat = require("plugins.formatter.neoformat")
 local treesitter = require("plugins.syntax.treesitter")
 
 local plugins = {
@@ -34,7 +32,6 @@ local plugins = {
 	colorscheme,
 	whichkey,
 	lualine,
-	neoformat,
 }
 
 if vim.g.vscode then

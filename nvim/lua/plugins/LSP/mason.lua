@@ -19,11 +19,8 @@ return {
         vim.lsp.enable("pylsp")
     end,
 
-    dependencies = {
-        { "neovim/nvim-lspconfig" },
-        { "williamboman/mason-lspconfig.nvim" },
-        { "mfussenegger/nvim-dap", event = "InsertEnter" },
-        { "rcarriga/nvim-dap-ui", event = "InsertEnter" },
-        { "nvimtools/none-ls.nvim", event = "InsertEnter" },
-    },
+	dependencies = {
+		{ "neovim/nvim-lspconfig" },
+		{ "williamboman/mason-lspconfig.nvim" },
+	},
 }

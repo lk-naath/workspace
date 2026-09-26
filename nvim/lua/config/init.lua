@@ -1,4 +1,4 @@
-local path = vim.env.MICO_CONFIG_PATH or vim.fn.stdpath("config") .. "/config.toml"
+local path = vim.env.NVIM_CONFIG_PATH or vim.fn.stdpath("config") .. "/config.toml"
 local file = assert(io.open(path, "r"), "Unable to open shared config: " .. path)
 local contents = file:read("*a")
 file:close()
