@@ -21,31 +21,71 @@ from extensions.preferences import Preferences
 from extensions.terminal_ui import TerminalUI
 
 
+class Tracker:
+	"""Classify startup sessions and sessions created in new tabs."""
+
+	def __init__(self, app):
+		self.__known_tab_ids = {
+			tab.tab_id
+			for window in app.terminal_windows
+			for tab in window.tabs
+		}
+		self.__startup_pending = True
+
+	def is_startup(self, tab):
+		"""Return True once for the active startup tab, when available."""
+		if not self.__startup_pending or tab.tab_id not in self.__known_tab_ids:
+			return False
+		self.__startup_pending = False
+		return True
+
+	def is_new_tab(self, tab):
+		"""Return True once for each tab created after tracking begins."""
+		if tab.tab_id in self.__known_tab_ids:
+			return False
+		self.__known_tab_ids.add(tab.tab_id)
+		return True
+
+
 class Plugin:
-	"""Install extensions and inject the first available terminal session."""
+	"""Install extensions and route startup and new-tab events."""
 
 	def __init__(self):
 		self.preferences = Preferences()
 		self.extensions = [TerminalUI(self.preferences)]
 
 	async def install(self, terminal):
-		"""Install extension preferences, then inject the first session."""
+		"""Install preferences, welcome the active tab, then watch new tabs."""
 		await self.preferences.install(terminal)
-
 		app = await iterm2.async_get_app(terminal)
-		for window in await app.async_get_windows():
-			for tab in await window.async_get_tabs():
-				sessions = await tab.async_get_sessions()
-				if sessions:
-					await self.inject(sessions[0])
-					return
+		tracker = Tracker(app)
 
-	async def inject(self, session):
-		"""Pass the active session to each extension that handles sessions."""
-		for extension in self.extensions:
-			await extension.inject(session)
+		startup_tab = next(
+			(
+				tab
+				for window in app.terminal_windows
+				for tab in window.tabs
+				if tab.current_session is not None
+			),
+			None,
+		)
+		if startup_tab is not None and tracker.is_startup(startup_tab):
+			for extension in self.extensions:
+				await extension.on_startup(startup_tab.current_session, startup_tab)
 
+		async with iterm2.NewSessionMonitor(terminal) as monitor:
+			while True:
+				session_id = await monitor.async_get()
+				session = app.get_session_by_id(session_id)
+				if session is None or session.tab is None:
+					continue
+				tab = session.tab
+				if tracker.is_startup(tab):
+					for extension in self.extensions:
+						await extension.on_startup(session, tab)
+				elif tracker.is_new_tab(tab):
+					for extension in self.extensions:
+						await extension.on_new_tab(session, tab)
 
 plugin = Plugin()
 iterm2.run_until_complete(plugin.install)
-

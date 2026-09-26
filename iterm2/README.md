@@ -3,7 +3,7 @@
 This iTerm2 Python API package manages terminal appearance and startup presentation:
 
 - Keep the tab bar visible when a window has one tab.
-- Print a welcome message into the first available session at iTerm2 startup.
+- Display a welcome message once in the current tab at startup and once in each newly created tab, excluding other restored tabs and split panes.
 
 The tab bar setting is app-wide. These scripts do not create or modify profiles.
 
@@ -22,9 +22,11 @@ The workspace-level `utils.sh` provides the reusable `confirm_delete` helper
 used by project loaders before replacing existing paths.
 
 `plugin.py` is the only file that starts the iTerm2 API loop. Its
-`Plugin.install(terminal)` applies preferences and selects a session, then calls
-`Plugin.inject(session)`. Extensions implement `install(terminal)` or
-`inject(session)` for the work they own.
+`Plugin.install(terminal)` applies preferences, welcomes the active startup
+tab, then watches future session creation. A small `Tracker` class answers
+whether a tab is the startup tab or a newly created tab; its state stays
+private. The terminal UI extension uses iTerm2's program-output injection API,
+so the message is not sent as shell input.
 
 ## Install
 
@@ -38,8 +40,8 @@ used by project loaders before replacing existing paths.
 3. Restart iTerm2. AutoLaunch contains only the runnable `workspace.py` entry
    point. Its `extensions/` package is installed outside the Scripts folder at
    `~/Library/Application Support/iTerm2/Workspace/extensions`. Look for
-   “Welcome to iTerm2! Your terminal setup is ready.” in the first available
-   terminal session.
+   “Welcome to iTerm2! Your terminal setup is ready.” in the current tab and
+   each newly created tab.
 
 After changing the settings or feature code, rerun `make setup iterm2` to update
 the installed files, then restart iTerm2.
