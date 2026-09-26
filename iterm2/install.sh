@@ -8,6 +8,17 @@ set -euo pipefail
 
 repo_root="${WORKSPACE_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 
+if [[ "$(uname -s)" != "Darwin" ]]; then
+	echo "iTerm2 setup is available only on macOS." >&2
+	exit 1
+fi
+
+# Install the host app when Homebrew is available; config can still be installed
+# independently for users who manage iTerm2 themselves.
+if command -v brew >/dev/null 2>&1; then
+	brew install --cask iterm2
+fi
+
 # Keep extensions outside AutoLaunch. iTerm2 treats entries inside that folder
 # as scripts, while this support directory is only used for Python imports.
 
