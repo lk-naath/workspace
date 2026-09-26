@@ -23,10 +23,13 @@ used by project loaders before replacing existing paths.
 
 `plugin.py` is the only file that starts the iTerm2 API loop. Its
 `Plugin.install(terminal)` applies preferences, welcomes the active startup
-tab, then watches future session creation. A small `Tracker` class answers
-whether a tab is the startup tab or a newly created tab; its state stays
-private. The terminal UI extension uses iTerm2's program-output injection API,
-so the message is not sent as shell input.
+tab, then watches future session creation inside the tracker's async context.
+On entry, `Tracker` snapshots existing tabs and classifies the current tab as
+`STARTUP`. Later, `Tracker.classify(tab)` returns `NEW_TAB`,
+`EXISTING_TAB`, or `UNKNOWN`. The plugin welcomes startup and new tabs,
+while ignoring existing tabs and split panes. The terminal UI extension uses
+iTerm2's program-output injection API, so the message is not sent as shell
+input.
 
 ## Install
 
