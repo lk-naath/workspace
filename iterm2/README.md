@@ -15,7 +15,7 @@ iterm2/
 ├── extensions/
 │   ├── preferences.py        # User-facing preferences
 │   └── terminal_ui.py        # Terminal appearance and startup behavior
-└── loader.sh                 # Installs the plugin and its extensions
+└── loader.sh                 # Installs or updates the plugin and extensions
 ```
 
 The workspace-level `utils.sh` provides the reusable `confirm_delete` helper
@@ -35,18 +35,18 @@ used by project loaders before replacing existing paths.
    make setup iterm2
    ```
 
-3. Restart iTerm2. AutoLaunch contains one runnable `workspace.py` entry point
-   and an importable archive named `extensions`. The source remains an
-   `extensions/` folder in this repository. Look for “Welcome to iTerm2! Your
-   terminal setup is ready.” in the first available terminal session.
+3. Restart iTerm2. AutoLaunch contains only the runnable `workspace.py` entry
+   point. Its `extensions/` package is installed outside the Scripts folder at
+   `~/Library/Application Support/iTerm2/Workspace/extensions`. Look for
+   “Welcome to iTerm2! Your terminal setup is ready.” in the first available
+   terminal session.
 
-After changing the settings or feature code, rerun `make setup iterm2` to copy
-the updated package into AutoLaunch, then restart iTerm2.
+After changing the settings or feature code, rerun `make setup iterm2` to update
+the installed files, then restart iTerm2.
 
 The workspace `setup.sh` installs iTerm2 with Homebrew when available, then
-runs this project's `loader.sh` to install `workspace.py` and the `extensions`
-archive. The
-workspace Makefile owns the workspace root and default install paths. You can
+runs this project's `loader.sh` to install `workspace.py` and its `extensions/`
+package. The workspace Makefile owns the workspace root and default install paths. You can
 override `ITERM2_AUTOLAUNCH_DIR` when installing to a different AutoLaunch
 directory.
 

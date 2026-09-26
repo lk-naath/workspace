@@ -6,8 +6,16 @@ import iterm2
 import os
 import sys
 
-# The loader packages extensions/ as a same-named archive beside this script.
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "extensions"))
+# Keep supporting modules outside AutoLaunch, which treats entries there as
+# scripts. This location is stable even when the workspace checkout moves.
+support_dir = os.path.join(
+	os.path.expanduser("~"),
+	"Library",
+	"Application Support",
+	"iTerm2",
+	"Workspace",
+)
+sys.path.insert(0, support_dir)
 
 from extensions.preferences import Preferences
 from extensions.terminal_ui import TerminalUI
@@ -40,3 +48,4 @@ class Plugin:
 
 plugin = Plugin()
 iterm2.run_until_complete(plugin.install)
+
