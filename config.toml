@@ -5,16 +5,16 @@ style = "nightfox"
 background = "dark"
 
 [theme.color]
-base = "#151a1d"
-mantle = "#101416"
-surface = "#1d2528"
-text = "#c8d2cc"
-subtext = "#899b92"
-red = "#bd7474"
-green = "#78977a"
-yellow = "#b9a477"
-blue = "#7295a3"
-mauve = "#9d8eaa"
+base = "#111a18"
+mantle = "#0b1210"
+surface = "#202d29"
+text = "#d3dfd7"
+subtext = "#91a69a"
+red = "#c47f7f"
+green = "#8fb59a"
+yellow = "#b5aa7a"
+blue = "#82aeba"
+mauve = "#9e9bb2"
 
 [theme.layout]
 line_numbers = true
