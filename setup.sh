@@ -58,11 +58,29 @@ setup_iterm2() {
 	fi
 
 	WORKSPACE_DIR="$repo_root" ITERM2_AUTOLAUNCH_DIR="${ITERM2_AUTOLAUNCH_DIR:-$HOME/Library/Application Support/iTerm2/Scripts/AutoLaunch}" \
-		bash "$repo_root/iterm2/loader.sh"
+		bash "$repo_root/iterm2/install.sh"
 }
 
-case "${1:-nvim}" in
-	nvim) setup_nvim "$@" ;;
-	iterm2) setup_iterm2 ;;
-	*) echo "Usage: make setup {nvim [mac|linux]|iterm2}" >&2; exit 2 ;;
+uninstall_iterm2() {
+	[[ "$(uname -s)" == "Darwin" ]] || {
+		echo "iTerm2 setup is available only on macOS." >&2
+		return 1
+	}
+
+	WORKSPACE_DIR="$repo_root" ITERM2_AUTOLAUNCH_DIR="${ITERM2_AUTOLAUNCH_DIR:-$HOME/Library/Application Support/iTerm2/Scripts/AutoLaunch}" \
+		bash "$repo_root/iterm2/uninstall.sh"
+}
+
+action="${1:-setup}"
+case "$action" in
+	setup|install|uninstall) shift || true ;;
+	*) action=setup ;;
+esac
+target="${1:-nvim}"
+
+case "$action:$target" in
+	setup:nvim|install:nvim) setup_nvim "$@" ;;
+	setup:iterm2|install:iterm2) setup_iterm2 ;;
+	uninstall:iterm2) uninstall_iterm2 ;;
+	*) echo "Usage: make {setup|install} {nvim [mac|linux]|iterm2}; make uninstall iterm2" >&2; exit 2 ;;
 esac
